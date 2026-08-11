@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ian — Electrical Engineering</title>
+  <meta name="description" content="Portfolio of Ian, Electrical Engineering student at UPenn" />
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+
+  <!-- shared nav, loaded from partials/nav.html by js/site.js -->
+  <div data-include="/partials/nav.html"></div>
+
+  <main class="container">
+
+    <!-- ============================================================
+         HERO — framed like the cover of a component datasheet.
+         Edit the title, role line, and spec table values below.
+         ============================================================ -->
+    <section class="hero">
+      <span class="datasheet-tag">DS-0001 &middot; REV A</span>
+
+      <h1 class="hero-title">
+        Hi, I'm <span class="accent">Ian</span><span class="cursor-blink">_</span>
+      </h1>
+      <p class="hero-role">Electrical Engineering &middot; University of Pennsylvania</p>
+
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="/projects/">view projects &rarr;</a>
+        <a class="btn" href="/resume.pdf">resume &darr;</a>
+      </div>
+
+      <div class="spec-sheet" role="table" aria-label="Quick facts">
+        <div class="spec-row head" role="row">
+          <div class="spec-key" role="columnheader">Parameter</div>
+          <div class="spec-val" role="columnheader">Value</div>
+        </div>
+        <div class="spec-row" role="row">
+          <div class="spec-key" role="rowheader">Institution</div>
+          <div class="spec-val" role="cell">University of Pennsylvania, School of Engineering &amp; Applied Science</div>
+        </div>
+        <div class="spec-row" role="row">
+          <div class="spec-key" role="rowheader">Program</div>
+          <div class="spec-val" role="cell">BSE Electrical Engineering</div>
+        </div>
+        <div class="spec-row" role="row">
+          <div class="spec-key" role="rowheader">Status</div>
+          <div class="spec-val" role="cell">[Class year / current focus — edit me]</div>
+        </div>
+        <div class="spec-row" role="row">
+          <div class="spec-key" role="rowheader">Interests</div>
+          <div class="spec-val" role="cell">[e.g. power electronics, analog &amp; mixed-signal design — edit me]</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         ABOUT — the "description" section of the datasheet.
+         Replace the placeholder paragraph with your actual intro.
+         ============================================================ -->
+    <section class="section" id="about">
+      <h2 class="section-heading">description</h2>
+      <div class="trace-divider"><span class="via"></span></div>
+
+      <div class="prose">
+        <p class="placeholder">
+          [EDIT ME] — Write two or three sentences here about who you are, what you're
+          studying, and what kind of problems you like working on. This is the main
+          "about me" text for the site — plain language is fine, this doesn't need to
+          sound like a real datasheet, that's just the visual bit.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         FEATURED PROJECTS — a short teaser row linking to /projects/.
+         Copy a .card block to add more, or leave just 2-3 as a teaser
+         and let /projects/ hold the full list.
+         ============================================================ -->
+    <section class="section" id="projects">
+      <h2 class="section-heading">featured projects</h2>
+      <div class="trace-divider"><span class="via"></span></div>
+
+      <div class="card-grid">
+        <a class="card-link" href="/projects/_example.html">
+          <div class="card">
+            <span class="card-designator">U1</span>
+            <h3>[Project name]</h3>
+            <p>[One-line description of the project — edit me.]</p>
+            <span class="card-status status-done">status: complete</span>
+          </div>
+        </a>
+
+        <a class="card-link" href="/projects/">
+          <div class="card">
+            <span class="card-designator">U2</span>
+            <h3>More projects</h3>
+            <p>See the full list of writeups.</p>
+            <span class="card-status">view all &rarr;</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CONTACT
+         ============================================================ -->
+    <section class="section" id="contact">
+      <h2 class="section-heading">contact</h2>
+      <div class="trace-divider"><span class="via"></span></div>
+
+      <div class="prose">
+        <p>
+          Reach me at <a href="mailto:you@example.com">you@example.com</a>,
+          or find me on
+          <a href="https://github.com/YOUR-USERNAME" target="_blank" rel="noopener">GitHub</a>
+          and
+          <a href="https://www.linkedin.com/in/YOUR-USERNAME" target="_blank" rel="noopener">LinkedIn</a>.
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- shared footer, loaded from partials/footer.html by js/site.js -->
+  <div data-include="/partials/footer.html"></div>
+
+  <script src="/js/site.js"></script>
+</body>
+</html>

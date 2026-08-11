@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects — Ian</title>
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+
+  <div data-include="/partials/nav.html"></div>
+
+  <main class="container">
+    <section class="hero" style="padding-bottom: 8px;">
+      <span class="datasheet-tag">INDEX &middot; ALL PARTS</span>
+      <h1 class="hero-title">Projects</h1>
+      <p class="hero-role">Writeups on things I've built. Each card links to a full page.</p>
+    </section>
+
+    <section class="section">
+      <!--
+        TO ADD A NEW PROJECT CARD:
+        1. Copy one of the <a class="card-link"> blocks below.
+        2. Point href at your new page (e.g. /projects/buck-converter.html).
+        3. Give it the next designator (U3, U4, C1, R1... whatever, doesn't
+           need to be strictly sequential — pick what reads well).
+        4. Set card-status to one of: status-done / status-progress / (none)
+      -->
+      <div class="card-grid">
+
+        <a class="card-link" href="/projects/_example.html">
+          <div class="card">
+            <span class="card-designator">U1</span>
+            <h3>[Example project — rename this file]</h3>
+            <p>[Short one-line summary of what it is and what it does.]</p>
+            <span class="card-status status-done">status: complete</span>
+          </div>
+        </a>
+
+        <a class="card-link" href="/projects/_template.html">
+          <div class="card">
+            <span class="card-designator">U2</span>
+            <h3>[Next project]</h3>
+            <p>Duplicate _template.html to start a new writeup.</p>
+            <span class="card-status status-progress">status: in progress</span>
+          </div>
+        </a>
+
+      </div>
+    </section>
+  </main>
+
+  <div data-include="/partials/footer.html"></div>
+  <script src="/js/site.js"></script>
+</body>
+</html>

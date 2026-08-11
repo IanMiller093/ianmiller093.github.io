@@ -1,0 +1,24 @@
+<nav class="topbar" aria-label="Primary">
+  <div class="topbar-inner">
+    <a class="brand" href="/">
+      <span class="brand-prompt" aria-hidden="true">&gt;</span>
+      <span class="brand-name">ian<span class="cursor-blink">_</span></span>
+    </a>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+
+    <!--
+      TO ADD A NAV LINK: copy one <li> line below and edit the href/text/data-nav.
+      data-nav should be a value that matches the start of the page's URL path,
+      it's used by js/site.js to highlight the active link.
+    -->
+    <ul class="nav-links" id="navLinks">
+      <li><a href="/" data-nav="/">home</a></li>
+      <li><a href="/projects/" data-nav="/projects">projects</a></li>
+      <li><a href="/resume.pdf" data-nav="/resume.pdf">resume</a></li>
+      <li><a href="/#contact" data-nav="/#contact">contact</a></li>
+    </ul>
+  </div>
+</nav>
