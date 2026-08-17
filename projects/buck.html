@@ -67,118 +67,118 @@
             component value or the equation to get that value.
         </p>
 
-            <table>
-                <tr>
-                    <th>Component(s)</th>
-                    <th>Explanation</th>
-                    <th>Source</th>
-                </tr>
-                <tr>
-                    <td>R1, R2</td>
-                    <td> 
-                        R1 and R2 form a voltage divider that sets a undervoltage lockout network.
-                        Essentially, if the voltage going into the EN pin (the voltage that goes
-                        through R1 but not R2) crosses a certain threshold, then the IC's shutdown
-                        logic is triggered, protecting the IC from high voltages.
-                    </td>
-                    <td>R1: Equation (1), R2: Equation (2)</td>
-                </tr>
-                <tr>
-                    <td>R3</td>
-                    <td> 
-                        This is the resistor of the Type II external compensator.  At high 
-                        frequency current coming from the COMP pin, this resistor is responsible
-                        for most of the voltage loss, as the capacitors behave more and more like 
-                        wires at high frequency currents.  The voltage drop across the resistor
-                        has little to no delay with time, as opposed to the capacitor, which needs
-                        to charge, providing an amount of instant feedback.
-                    </td>
-                    <td> Equation (26) </td>
-                </tr>
-                <tr>
-                    <td>R4</td>
-                    <td>Just a removable switch for testing purposes.  Set at 0.</td>
-                    <td>pg. 15</td>
-                </tr>
-                <tr>
-                    <td>R5, R6</td>
-                    <td>
-                        These resistors form a voltage divider that is essentially the backbone of
-                        determining what Vout is (see equation 5).  Nudging the ratio between R5
-                        and R6 up or down is the most immediate way to change Vout.
-                    </td>
-                    <td>R5: pg. 15, R6: Equation (4)</td>
-                </tr>
-                <tr>
-                    <td>C1, C2, C3</td>
-                    <td>
-                        These are input capacitors, and they serve to filter out some high
-                        frequency noise from the input.  These are actually kind of optional; the 
-                        datasheet includes them, but the Transient Reference Design doesn't
-                        include them.  It just sort of depends on how noisy your Vin source is.  I
-                        included them because why not?  I can afford the extra few cents in
-                        capacitors.  Broke this up into three capacitors as opposed to just one for
-                        lower ESR.
-                    </td>
-                    <td>all of them: pg. 15</td>
-                </tr>
-                <tr>
-                    <td>C4</td>
-                    <td>
-                        C4 is the bootstrap capacitor.  It makes it possible for the PH pin to be 
-                        supplied with a voltage higher than the input voltage, thus turning on the 
-                        internal high side MOSFET in the internal IC.
-                    </td>
-                    <td>pg. 20</td>
-                </tr>
-                <tr>
-                    <td>C5</td>
-                    <td>
-                        The C5 capacitor is entirely responsible for programming the circuit's
-                        slow start time.  In my case here, I chose a 5 ms slow start, which I've
-                        since realized is a little bit on the slower, safer side, but I am fine
-                        with that.
-                    </td>
-                    <td>reworking Equation (3)</td>
-                </tr>
-                <tr>
-                    <td>C6, C7</td>
-                    <td>
-                        These are the capacitors of the compensator (the resistor of this 
-                        compensator being R3, described a bit above).  At low frequencies, C6 
-                        builds up higher and higher voltage, as it acts as a short.  This sets
-                        the low frequency value of the gain.  Meanwhile, C7 acts as a wire at super
-                        high frequencies, determining the high frequency value of the gain.
-                    </td>
-                    <td>C6: Equation (27), C7: Equation (28)</td>
-                </tr>
-                <tr>
-                    <td>C8, C9</td>
-                    <td>
-                        These are the output capacitors.  They're split up into two separate
-                        capacitors to lower ESR and to limit self heating and capacitor heat 
-                        degradation (given that I'm using ceramic capacitors for these lower 
-                        values).  They, along with the inductor which will be described next, 
-                        function as a low pass filter that turns the AC current into a DC output.
-                    </td>
-                    <td>C8, C9: Equation (12)</td>
-                </tr>
-                <tr>
-                    <td>L</td>
-                    <td>
-                        This, along with the capacitors described above serves as a low pass
-                        filter.  In addition, it makes it difficult for current to instantaneously
-                        change.  Now that's kind of obvious, but what that does specifically here 
-                        is turn the square wave that comes from the inside of the IC into a much
-                        neater triangle type wave.  The capacitors (C8 and C9) then smooths that.
-                        Also, something worth noting: I had to increase this inductance value to 
-                        150 uH, despite the calculated Lmin value being much lower.  The output 
-                        voltage was just a lot more unstable at lower inductance values, a lot 
-                        more wonky, so I increased it.
-                    </td>
-                    <td> </td>
-                </tr>
-            </table>
+        <table>
+            <tr>
+                <th>Component(s)</th>
+                <th>Explanation</th>
+                <th>Source</th>
+            </tr>
+            <tr>
+                <td>R1, R2</td>
+                <td> 
+                    R1 and R2 form a voltage divider that sets a undervoltage lockout network.
+                    Essentially, if the voltage going into the EN pin (the voltage that goes
+                    through R1 but not R2) crosses a certain threshold, then the IC's shutdown
+                    logic is triggered, protecting the IC from high voltages.
+                </td>
+                <td>R1: Equation (1), R2: Equation (2)</td>
+            </tr>
+            <tr>
+                <td>R3</td>
+                <td> 
+                    This is the resistor of the Type II external compensator.  At high 
+                    frequency current coming from the COMP pin, this resistor is responsible
+                    for most of the voltage loss, as the capacitors behave more and more like 
+                    wires at high frequency currents.  The voltage drop across the resistor
+                    has little to no delay with time, as opposed to the capacitor, which needs
+                    to charge, providing an amount of instant feedback.
+                </td>
+                <td> Equation (26) </td>
+            </tr>
+            <tr>
+                <td>R4</td>
+                <td>Just a removable switch for testing purposes.  Set at 0.</td>
+                <td>pg. 15</td>
+            </tr>
+            <tr>
+                <td>R5, R6</td>
+                <td>
+                    These resistors form a voltage divider that is essentially the backbone of
+                    determining what Vout is (see equation 5).  Nudging the ratio between R5
+                    and R6 up or down is the most immediate way to change Vout.
+                </td>
+                <td>R5: pg. 15, R6: Equation (4)</td>
+            </tr>
+            <tr>
+                <td>C1, C2, C3</td>
+                <td>
+                    These are input capacitors, and they serve to filter out some high
+                    frequency noise from the input.  These are actually kind of optional; the 
+                    datasheet includes them, but the Transient Reference Design doesn't
+                    include them.  It just sort of depends on how noisy your Vin source is.  I
+                    included them because why not?  I can afford the extra few cents in
+                    capacitors.  Broke this up into three capacitors as opposed to just one for
+                    lower ESR.
+                </td>
+                <td>all of them: pg. 15</td>
+            </tr>
+            <tr>
+                <td>C4</td>
+                <td>
+                    C4 is the bootstrap capacitor.  It makes it possible for the PH pin to be 
+                    supplied with a voltage higher than the input voltage, thus turning on the 
+                    internal high side MOSFET in the internal IC.
+                </td>
+                <td>pg. 20</td>
+            </tr>
+            <tr>
+                <td>C5</td>
+                <td>
+                    The C5 capacitor is entirely responsible for programming the circuit's
+                    slow start time.  In my case here, I chose a 5 ms slow start, which I've
+                    since realized is a little bit on the slower, safer side, but I am fine
+                    with that.
+                </td>
+                <td>reworking Equation (3)</td>
+            </tr>
+            <tr>
+                <td>C6, C7</td>
+                <td>
+                    These are the capacitors of the compensator (the resistor of this 
+                    compensator being R3, described a bit above).  At low frequencies, C6 
+                    builds up higher and higher voltage, as it acts as a short.  This sets
+                    the low frequency value of the gain.  Meanwhile, C7 acts as a wire at super
+                    high frequencies, determining the high frequency value of the gain.
+                </td>
+                <td>C6: Equation (27), C7: Equation (28)</td>
+            </tr>
+            <tr>
+                <td>C8, C9</td>
+                <td>
+                    These are the output capacitors.  They're split up into two separate
+                    capacitors to lower ESR and to limit self heating and capacitor heat 
+                    degradation (given that I'm using ceramic capacitors for these lower 
+                    values).  They, along with the inductor which will be described next, 
+                    function as a low pass filter that turns the AC current into a DC output.
+                </td>
+                <td>C8, C9: Equation (12)</td>
+            </tr>
+            <tr>
+                <td>L</td>
+                <td>
+                    This, along with the capacitors described above serves as a low pass
+                    filter.  In addition, it makes it difficult for current to instantaneously
+                    change.  Now that's kind of obvious, but what that does specifically here 
+                    is turn the square wave that comes from the inside of the IC into a much
+                    neater triangle type wave.  The capacitors (C8 and C9) then smooths that.
+                    Also, something worth noting: I had to increase this inductance value to 
+                    150 uH, despite the calculated Lmin value being much lower.  The output 
+                    voltage was just a lot more unstable at lower inductance values, a lot 
+                    more wonky, so I increased it.
+                </td>
+                <td> </td>
+            </tr>
+        </table>
       </div>
     </section>
 
@@ -204,6 +204,16 @@
             reference design didn't include them.  I also downloaded the B340A diode and inserted
             that as well, in replacement of the diode the reference design used.
         </p>
+
+        <p>
+            Here was my schematic (ooh, ahh):
+        </p>
+        <img src="..\assets\TINA_TI_schematic.png", alt="my schematic in TINA TI">
+
+        <p>
+            Next, the most obv
+        </p>
+
       </div>
     </section>
 
