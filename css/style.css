@@ -346,6 +346,70 @@ ul { margin: 0; padding: 0; list-style: none; }
 .footer-line a:hover { color: var(--accent); }
 
 /* =========================================================================
+   TABLES  (styled like the datasheet spec-sheet — a bordered parts table)
+   Any <table> inside a .prose block gets this automatically. If you want
+   a table somewhere else, just add class="data-table" to it directly.
+   ========================================================================= */
+.prose table,
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 24px 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  font-size: .88rem;
+}
+.prose th, .prose td,
+.data-table th, .data-table td {
+  padding: 10px 14px;
+  text-align: left;
+  border-top: 1px solid var(--line);
+  vertical-align: top;
+}
+.prose tr:first-child th,
+.data-table tr:first-child th {
+  border-top: none;
+}
+.prose thead th,
+.data-table thead th,
+.prose th,
+.data-table th {
+  background: var(--bg-panel);
+  font-family: var(--font-display);
+  font-size: .72rem;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  font-weight: 700;
+}
+.prose td,
+.data-table td {
+  color: var(--text);
+}
+/* vertical divider between columns, like the spec-sheet's key/value split */
+.prose th + th, .prose td + td,
+.data-table th + th, .data-table td + td {
+  border-left: 1px solid var(--line);
+}
+.prose tbody tr:hover td,
+.data-table tbody tr:hover td {
+  background: var(--bg-panel);
+}
+/* first column reads like a "part reference" — dim + monospace, same
+   treatment as .spec-key on the home page */
+.prose td:first-child,
+.data-table td:first-child {
+  font-family: var(--font-display);
+  color: var(--accent-dim);
+  white-space: nowrap;
+}
+
+@media (max-width: 720px) {
+  .prose table, .data-table { display: block; overflow-x: auto; }
+}
+
+/* =========================================================================
    PROJECT PAGE SPECIFIC
    ========================================================================= */
 .back-link {
