@@ -105,7 +105,9 @@
                 <td>
                     These resistors form a voltage divider that is essentially the backbone of
                     determining what Vout is (see equation 5).  Nudging the ratio between R5
-                    and R6 up or down is the most immediate way to change Vout.
+                    and R6 up or down is the most immediate way to change Vout.  The IC will 
+                    constantly try to adjust its PWM such that the voltage at the VSNS pin will be
+                    equal to the internal reference voltage of 0.8 V.
                 </td>
                 <td>R5: pg. 15, R6: Equation (4)</td>
             </tr>
@@ -211,20 +213,63 @@
         <img src="../assets/TINA_TI_schematic.png", alt="my schematic in TINA TI">
 
         <p>
-            Next, the most obv
+            Next, the most obvious metric to run is to look at the output voltage over time.  
+            Initially, the values were very wonky and I had to bump up the inductance of the 
+            inductor, but eventually I got this graph, with a steady rise and a more relatively
+            flat steady state voltage.  After 5 ms (a chosen slow start value), the voltage
+            reached its steady output, and it was exactly what I calculated it to be.
+        </p>
+
+        <img src="../assets/Vout_over_time.png", alt="the output voltage over time">
+
+        <p>
+            It's also a good idea to get a good look at the steady state voltage ripple, but even
+            that's more or less negligible.
+        </p>
+
+        <img src="../assets/Vout_ripple.png", alt="the output voltage's ripple over a shorter window">
+
+        <p>
+            Similarly, we can look at the current going through both the inductor and the output
+            current.  Thankfully, the output current is on par with our target of 3 A, but 
+            interestingly, we can also see that the current through the inductor is equal to the 
+            output current value.  Conceptually, we can see why this makes sense.  The load 
+            resistance is 1.1 Ohms, and the VSNS branch is 10k Ohms, so most of the current will
+            naturally go through the 1.1 Ohm output branch.  The output capacitors likely
+            do manage to filter out some high frequency noise, but that is probably minimal.
+        </p>
+
+        <img src="../assets/Iout_IL.png">
+
+        <p>
+            With this working I had my confirmation to finalize the PCB design in KiCad.
         </p>
 
       </div>
     </section>
 
     <section class="section">
-      <h2 class="section-heading">results</h2>
+      <h2 class="section-heading">Real circuit validation</h2>
       <div class="trace-divider"><span class="via"></span></div>
       <div class="prose">
-        <p class="placeholder">[Photos, scope captures, measurements, demo links, etc.]</p>
-        <!-- example image block:
-        <img src="/assets/your-image.jpg" alt="Description of the image" />
-        -->
+        <p class="placeholder">
+            This section is under construction until the PCBs actually ship to me and I can test
+            this in person!
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-heading">Next steps</h2>
+      <div class="trace-divider"><span class="via"></span></div>
+      <div class="prose">
+        <p class="placeholder">
+            A possible followup project-- or not even followup project, more of a Part 1.5 as 
+            opposed to a Part 2, would be too take a more involved look at the compensator design.
+            My math says the compensator should work, and I understand conceptually how a Type II
+            compensator works (in part thanks to this <a href="https://www.ti.com/lit/an/slva662/slva662.pdf?ts=1786864202783">
+            TI pdf thingy</a>).
+        </p>
       </div>
     </section>
 
