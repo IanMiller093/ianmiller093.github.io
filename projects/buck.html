@@ -64,7 +64,10 @@
             this Google Sheet</a>.  I won't go through every single value because that would be a
             bit too exhaustive, but I will give a general overview of both the purpose of each
             component along with a citation of the where in the datasheet I found either the 
-            component value or the equation to get that value.
+            component value or the equation to get that value.  When I actually get the PCBs 
+            delivered, I plan on using the components in UPenn's (where I go to school) 
+            Detkin Lab to assemble them, so a lot of the calculated values are rounded to slightly
+            wonky numbers.  
         </p>
 
         <table>
@@ -212,6 +215,10 @@
         </p>
         <img src="../assets/TINA_TI_schematic.png", alt="my schematic in TINA TI">
 
+        <p> 
+            You can also download the actual tsc file <a href="../assets/schematic_for_download.TSC" download>here</a>.
+        </p>
+        
         <p>
             Next, the most obvious metric to run is to look at the output voltage over time.  
             Initially, the values were very wonky and I had to bump up the inductance of the 
@@ -242,8 +249,15 @@
         <img src="../assets/Iout_IL.png">
 
         <p>
-            With this working I had my confirmation to finalize the PCB design in KiCad.
+            With this working I had my confirmation to finalize the PCB design in KiCad.  This was
+            more or less straightforward.  I used ceramic capacitors because of the low
+            capacitance values of all of the capacitors, and I used through hole axial resistors.
+            I also used a through-holed radial leaded inductor.  Below you can see a picture of my
+            PCB layout along with the actual files for download <a 
+            href="../assets/buck_kicad_copy_zip.zip" download>here</a>.
         </p>
+
+        <img src="../assets/kicad_design.png">
 
       </div>
     </section>
